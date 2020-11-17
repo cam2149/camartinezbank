@@ -1,0 +1,58 @@
+﻿@model dataAccessPayments.Accounts
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Accounts</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.number_account)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.number_account)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.current_account_balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.current_account_balance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bank_account)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bank_account)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.exemption_gmf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.exemption_gmf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clients.customer_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clients.customer_code)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_account }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

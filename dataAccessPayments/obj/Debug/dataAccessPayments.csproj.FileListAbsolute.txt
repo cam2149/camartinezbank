@@ -1,0 +1,11 @@
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Debug\dataAccessPayments.dll.config
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Debug\dataAccessPayments.dll
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Debug\dataAccessPayments.pdb
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Debug\EntityFramework.dll
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Debug\EntityFramework.xml
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\obj\Debug\dataAccessPayments.csproj.CoreCompileInputs.cache
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\obj\Debug\dataAccessPayments.csproj.CopyComplete
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\obj\Debug\dataAccessPayments.dll
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\obj\Debug\dataAccessPayments.pdb

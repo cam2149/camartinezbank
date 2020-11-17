@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AppApaymentsModelStoreContainer" CdmEntityContainer="AppApaymentsEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="AppApaymentsModel.Accounts">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="number_account" ColumnName="number_account" />
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+          <ScalarProperty Name="current_account_balance" ColumnName="current_account_balance" />
+          <ScalarProperty Name="bank_account" ColumnName="bank_account" />
+          <ScalarProperty Name="exemption_gmf" ColumnName="exemption_gmf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="AppApaymentsModel.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+          <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_lastname" ColumnName="customer_lastname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parameters">
+      <EntityTypeMapping TypeName="AppApaymentsModel.Parameters">
+        <MappingFragment StoreEntitySet="Parameters">
+          <ScalarProperty Name="id_parameters" ColumnName="id_parameters" />
+          <ScalarProperty Name="maximum_transaction_amount" ColumnName="maximum_transaction_amount" />
+          <ScalarProperty Name="daily_gmf_calculation" ColumnName="daily_gmf_calculation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="AppApaymentsModel.Transactions">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="id_transaction" ColumnName="id_transaction" />
+          <ScalarProperty Name="date_transaction" ColumnName="date_transaction" />
+          <ScalarProperty Name="transaction_amount" ColumnName="transaction_amount" />
+          <ScalarProperty Name="valuebasegmf_transaccion" ColumnName="valuebasegmf_transaccion" />
+          <ScalarProperty Name="gmf_transaction_value" ColumnName="gmf_transaction_value" />
+          <ScalarProperty Name="destination_account" ColumnName="destination_account" />
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+          <ScalarProperty Name="source_bank" ColumnName="source_bank" />
+          <ScalarProperty Name="destination_bank" ColumnName="destination_bank" />
+          <ScalarProperty Name="type_transaction" ColumnName="type_transaction" />
+          <ScalarProperty Name="type_movement" ColumnName="type_movement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="AppApaymentsModel.Store.customer_transactions" FunctionImportName="customer_transactions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AppApaymentsModel.customer_transactions_Result">
+          <ScalarProperty Name="id_transaction" ColumnName="id_transaction" />
+          <ScalarProperty Name="date_transaction" ColumnName="date_transaction" />
+          <ScalarProperty Name="transaction_amount" ColumnName="transaction_amount" />
+          <ScalarProperty Name="valuebasegmf_transaccion" ColumnName="valuebasegmf_transaccion" />
+          <ScalarProperty Name="gmf_transaction_value" ColumnName="gmf_transaction_value" />
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="type_transaction" ColumnName="type_transaction" />
+          <ScalarProperty Name="type_movement" ColumnName="type_movement" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="adjust__account_balance" FunctionName="AppApaymentsModel.Store.adjust__account_balance" />
+    <FunctionImportMapping FunctionImportName="apply_gmf_client" FunctionName="AppApaymentsModel.Store.apply_gmf_client" />
+  </EntityContainerMapping>
+</Mapping>

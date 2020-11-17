@@ -1,0 +1,101 @@
+﻿@model IEnumerable<WebAppPayments.Models.Payments>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_transaction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_transaction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.transaction_amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valuebasegmf_transaccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gmf_transaction_value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_customer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type_transaction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type_movement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destination_account)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.source_bank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destination_bank)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_transaction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_transaction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.transaction_amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valuebasegmf_transaccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gmf_transaction_value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_account)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_customer)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.type_transaction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type_movement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destination_account)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.source_bank)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destination_bank)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

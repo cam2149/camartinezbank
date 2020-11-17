@@ -1,0 +1,12 @@
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Release\dataAccessPayments.dll.config
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Release\dataAccessPayments.dll
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Release\dataAccessPayments.pdb
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Release\EntityFramework.dll
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Release\EntityFramework.xml
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\obj\Release\dataAccessPayments.csprojAssemblyReference.cache
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\obj\Release\dataAccessPayments.csproj.CoreCompileInputs.cache
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\obj\Release\dataAccessPayments.csproj.CopyComplete
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\obj\Release\dataAccessPayments.dll
+C:\Users\CAMARTINEZ\source\repos\camartinezbank\dataAccessPayments\obj\Release\dataAccessPayments.pdb

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AppApaymentsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="customer_transactions_Result">
+    <Property Name="id_transaction" Type="Guid" Nullable="false" />
+    <Property Name="date_transaction" Type="DateTime" Nullable="false" />
+    <Property Name="transaction_amount" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="valuebasegmf_transaccion" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="gmf_transaction_value" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="id_account" Type="Guid" Nullable="false" />
+    <Property Name="id_customer" Type="Guid" Nullable="false" />
+    <Property Name="bank" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="type_transaction" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="type_movement" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="id_account" />
+    </Key>
+    <Property Name="id_account" Type="Guid" Nullable="false" />
+    <Property Name="number_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_customer" Type="Guid" Nullable="false" />
+    <Property Name="current_account_balance" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="bank_account" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="exemption_gmf" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK_Cuentas_Clientes" FromRole="Accounts" ToRole="Clients" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transacciones_Cuentas" FromRole="Accounts" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="id_customer" />
+    </Key>
+    <Property Name="id_customer" Type="Guid" Nullable="false" />
+    <Property Name="customer_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="customer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customer_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Accounts" Relationship="Self.FK_Cuentas_Clientes" FromRole="Clients" ToRole="Accounts" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transacciones_Clientes" FromRole="Clients" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="Parameters">
+    <Key>
+      <PropertyRef Name="id_parameters" />
+    </Key>
+    <Property Name="id_parameters" Type="Guid" Nullable="false" />
+    <Property Name="maximum_transaction_amount" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="daily_gmf_calculation" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="id_transaction" />
+    </Key>
+    <Property Name="id_transaction" Type="Guid" Nullable="false" />
+    <Property Name="date_transaction" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="transaction_amount" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="valuebasegmf_transaccion" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="gmf_transaction_value" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="destination_account" Type="Guid" />
+    <Property Name="id_account" Type="Guid" Nullable="false" />
+    <Property Name="id_customer" Type="Guid" Nullable="false" />
+    <Property Name="source_bank" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="destination_bank" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="type_transaction" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="type_movement" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Accounts" Relationship="Self.FK_Transacciones_Cuentas" FromRole="Transactions" ToRole="Accounts" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK_Transacciones_Clientes" FromRole="Transactions" ToRole="Clients" />
+  </EntityType>
+  <Association Name="FK_Cuentas_Clientes">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="id_customer" />
+      </Principal>
+      <Dependent Role="Accounts">
+        <PropertyRef Name="id_customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transacciones_Cuentas">
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="id_account" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="id_account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transacciones_Clientes">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="id_customer" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="id_customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AppApaymentsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" />
+    <EntitySet Name="Parameters" EntityType="Self.Parameters" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" />
+    <AssociationSet Name="FK_Cuentas_Clientes" Association="Self.FK_Cuentas_Clientes">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Accounts" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transacciones_Cuentas" Association="Self.FK_Transacciones_Cuentas">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transacciones_Clientes" Association="Self.FK_Transacciones_Clientes">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <FunctionImport Name="customer_transactions" IsComposable="true" ReturnType="Collection(AppApaymentsModel.customer_transactions_Result)">
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+      <Parameter Name="id_customer" Mode="In" Type="Guid" />
+      <Parameter Name="type_transaction" Mode="In" Type="String" />
+      <Parameter Name="bank" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="adjust__account_balance">
+      <Parameter Name="id_transaction" Mode="InOut" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="apply_gmf_client">
+      <Parameter Name="id_transaction" Mode="InOut" Type="Guid" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>
